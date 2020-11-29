@@ -1,24 +1,19 @@
-
 function main() {
   console.log('DOM is loaded');
-  
   const startMsg = $('<p>Webpack is working!</p>');
   $('#root').append(startMsg);
 }
   
-function talk() {
-  console.log('words');
+
+${#newbk}.addEventListener('click', getBookmarks)
+
+function getBookmarks() {
+    console.log('abc');
 }
   
-  
     
   
     
-$(main);
-    
-console.log('hiii', main());
-  
-$(talk);
 $(main);
   
 //my store: used for generating my pre-made bookmarks and updating to it to get my added ones
