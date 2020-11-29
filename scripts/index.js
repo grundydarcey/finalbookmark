@@ -5,13 +5,15 @@ function main() {
 }
   
 
-${#newbk}.addEventListener('click', getBookmarks)
+$('#newbk').on('click', getBookmarks);
 
 function getBookmarks() {
-    console.log('abc');
-}
-  
-    
+  fetch('try.txt')
+    .then((res) => res.text())
+    .then((data) => {
+      document.getElementById('results').innerHTML = data;
+    }
+    );}
   
     
 $(main);

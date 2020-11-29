@@ -13,6 +13,10 @@ h1 {
     text-align: center;
 }
 
+#results {
+    text-align: center;
+}
+
 #new-select {
     display: block;
     text-align: center;
