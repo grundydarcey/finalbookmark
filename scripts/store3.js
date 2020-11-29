@@ -1,6 +1,6 @@
 const store = {
-    bookmarks: [...],
-    adding: true,
-    error: null,
-    filter: 0
-  };
+  bookmarks: [],
+  adding: true,
+  error: null,
+  filter: 0
+};

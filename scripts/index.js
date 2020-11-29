@@ -5,7 +5,7 @@ function main() {
 }
   
 
-$('#newbk').on('click', getBookmarks);
+
 
 function getBookmarks() {
   fetch('try.txt')
@@ -13,7 +13,13 @@ function getBookmarks() {
     .then((data) => {
       document.getElementById('results').innerHTML = data;
     }
-    );}
+    );
+}
+
+getBookmarks();
+
+
+
   
     
 $(main);
