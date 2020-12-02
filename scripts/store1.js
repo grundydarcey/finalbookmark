@@ -1,4 +1,4 @@
-const store = {
+const store1 = {
   bookmarks: [
     {
       id: 'x56w',
@@ -22,3 +22,6 @@ const store = {
   error: null,
   filter: 0
 };
+
+
+export default store1;

@@ -1,13 +1,5 @@
-import $ from 'jquery';
-
-function main() {
-  console.log('DOM is loaded');
-  const startMsg = $('<p>Webpack is working!</p>');
-  $('#root').append(startMsg);
-}
+import store1 from './store1';
   
-
-
 
 function getBookmarks() {
   fetch('try.txt')
@@ -19,12 +11,45 @@ function getBookmarks() {
 }
 
 getBookmarks();
-
-
-
   
-    
+
+function generateStartPage() {
+  console.log('Bookmark app is loaded');
+  const startMsg = $('<p>Ready for bookmark fun</p>');
+  $('#root').append(startMsg);
+  return `<div id="new-select">
+  <div id="new" class="clicknew">
+      <input type="button" id="newbk" value="Create a new bookmark">
+      <input type="button" id="oldbk" value="Get old bookmarks">
+  </div>
+
+  <div class="select">
+      <label for="stars">View bookmarks by Star Rating:</label>
+          <select name="stars" id="stars">
+          <option value="one-star">1-star and up</option>
+          <option value="two-star">2-star and up</option>
+          <option value="three-star">3-star and up</option>
+          <option value="four-star">4-star and up</option>
+          <option value="five-star">5-star</option>
+      </select>
+  </div>
+</div>`;
+}
+
+function render() {
+  let html = '';
+  if (store1[1] === false) {
+    html = generateStartPage();
+  }
+  $('main').html(html);
+}
+
+function main() {
+  render();
+}
+
 $(main);
+
   
 //my store: used for generating my pre-made bookmarks and updating to it to get my added ones
 /*const store = {
