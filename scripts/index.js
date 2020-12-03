@@ -40,6 +40,7 @@ function render() {
   let html = '';
   if (store1[1] === false) {
     html = generateStartPage();
+    console.log("Hello");
   }
   $('main').html(html);
 }
