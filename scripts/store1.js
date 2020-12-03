@@ -1,3 +1,4 @@
+
 const store1 = {
   bookmarks: [
     {
@@ -25,3 +26,4 @@ const store1 = {
 
 
 export default store1;
+

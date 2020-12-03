@@ -1,6 +1,7 @@
 import store1 from './store1.js';
 import {newBookmarkHandler} from './handlers.js';
 import {expandBookmarkHandler} from './handlers.js';
+
   
 function generateStartPage() {
   return `<div id="new-select">
@@ -21,14 +22,13 @@ function generateStartPage() {
 </div>
 <ul class="result" id="resulted">
   <li class="bmarkcontainer1" id="contained1">
-    <button type="button" id="bmk1">Expand this bookmark</button><br>
-    <a href="#contained1">Bookmark Title</a><br>
-    Bookmark Rating<br><br>
+    <button class="bouton" id="btn">Detailed view</button>
+    Link Title: <a href=#mainpage>${store1.bookmarks[0].title}</a> <br>
+    Star Rating: ${store1.bookmarks[0].rating}<br><br>
   </li>
   <li class="bmarkcontainer2" id="contained2">
-    <button type="button" id="bmk2">Expand that bookmark</button><br>
-    Bookmark Title<br>
-    Bookmark Rating<br><br>
+    Link Title: ${store1.bookmarks[1].title}<br>
+    Star Rating: ${store1.bookmarks[1].rating}<br><br>
   </li>
 </ul>
 `;
@@ -43,11 +43,20 @@ function render() {
   $('#mainpage').html(html);
 }
 
+
 function main() {
   render();
 }
 
 $(main);
+
+function gotItHandled() {
+  $('#btn').on('click', function(event) {
+    event.preventDefault;
+    console.log('getting it handled');
+  });
+}
+
 
 newBookmarkHandler();
 expandBookmarkHandler();
@@ -80,4 +89,3 @@ expandBookmarkHandler();
   
 //-----pseudocode/things i want my code to do------
 // i want a function that takes my store and puts my bookmarks where they belong
-  
