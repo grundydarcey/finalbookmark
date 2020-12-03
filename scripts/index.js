@@ -1,29 +1,14 @@
 import store1 from './store1.js';
+import {newBookmarkHandler} from './handlers.js';
+import {expandBookmarkHandler} from './handlers.js';
   
-
-function getBookmarks() {
-  fetch('try.txt')
-    .then((res) => res.text())
-    .then((data) => {
-      document.getElementById('results').innerHTML = data;
-    }
-    );
-}
-
-getBookmarks();
-  
-
 function generateStartPage() {
-  console.log('Bookmark app is loaded');
-  const startMsg = $('<p>Ready for bookmark fun</p>');
-  $('#root').append(startMsg);
   return `<div id="new-select">
   <div id="new" class="clicknew">
       <input type="button" id="newbk" value="Create a new bookmark">
       <input type="button" id="oldbk" value="Get old bookmarks">
   </div>
-
-  <div class="select">
+  <div class="select" id="selected">
       <label for="stars">View bookmarks by Star Rating:</label>
           <select name="stars" id="stars">
           <option value="one-star">1-star and up</option>
@@ -33,16 +18,29 @@ function generateStartPage() {
           <option value="five-star">5-star</option>
       </select>
   </div>
-</div>`;
+</div>
+<ul class="result" id="resulted">
+  <li class="bmarkcontainer1" id="contained1">
+    <button type="button" id="bmk1">Expand this bookmark</button><br>
+    <a href="#contained1">Bookmark Title</a><br>
+    Bookmark Rating<br><br>
+  </li>
+  <li class="bmarkcontainer2" id="contained2">
+    <button type="button" id="bmk2">Expand that bookmark</button><br>
+    Bookmark Title<br>
+    Bookmark Rating<br><br>
+  </li>
+</ul>
+`;
 }
+
 
 function render() {
   let html = '';
-  if (store1[1] === false) {
+  if (store1['adding'] === false) {
     html = generateStartPage();
-    console.log("Hello");
   }
-  $('main').html(html);
+  $('#mainpage').html(html);
 }
 
 function main() {
@@ -51,7 +49,9 @@ function main() {
 
 $(main);
 
-  
+newBookmarkHandler();
+expandBookmarkHandler();
+
 //my store: used for generating my pre-made bookmarks and updating to it to get my added ones
 /*const store = {
     bookmarks: [
