@@ -1,4 +1,4 @@
-import store1 from './store1';
+import store1 from './store1.js';
   
 
 function getBookmarks() {
