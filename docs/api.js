@@ -1,55 +1,47 @@
-const BASE_URL = 'https://thinkful-list-api.herokuapp.com/darcey/bookmarks';
+const BASE_URL = 'https://thinkful-list-api.herokuapp.com/darcey/items';
 
 const listApiFetch = function (...args) {
   let error;
   return fetch(...args)
-    .then (response => {
-      if (!response.ok) {
-        error = true;
+    .then(res => {
+      if (!res.ok) {
+        error = { code: res.status };
+        if(!res.headers.get('content-type').includes('json')){
+          error.message = res.statusText;
+        }
       }
-      return response.json();
+      return res.json();
     })
-    .then (data => {
-      if (!error) {
-        return data;
-      } else {
-        return data;
+    .then(data => {
+      if (error) {
+        error.message = data.message;
+        return Promise.reject(error);
       }
+      return data;
     });
 };
 
 const getBookmarks = function () {
-  return listApiFetch(`${BASE_URL}`);
+  return listApiFetch(`${BASE_URL}/bookmarks`);
 };
 
-const addBookmark = function (bookmarkData) {
-  return listApiFetch(`${BASE_URL}`, 
+const createBookmark = function (newBookmark) {
+  return listApiFetch(`${BASE_URL}/bookmarks`,
     {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: bookmarkData
-    });
-};
-
-const updateBookmark = function (id, updateData) {
-  return listApiFetch(`${BASE_URL}/${id}`, 
-    {
-      method: 'PATCH',
-      headers: {'Content-Type': 'application/json'},
-      body: updateData
+      body: newBookmark
     });
 };
 
 const deleteBookmark = function (id) {
-  return listApiFetch(`${BASE_URL}/${id}`, 
-    {
-      method: 'DELETE'
-    });
+  return listApiFetch(BASE_URL + '/bookmarks/' + id, {
+    method: 'DELETE'
+  });
 };
 
 export default {
   getBookmarks,
-  addBookmark,
-  deleteBookmark,
-  updateBookmark
+  createBookmark,
+  deleteBookmark
 };

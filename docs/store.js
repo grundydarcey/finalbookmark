@@ -1,60 +1,36 @@
-const storeData = {
+const storeItems = {
   bookmarks: [],
   adding: false,
   error: null,
-  errorMessage: '',
   filter: 0
 };
 
-function findBookmarkById(id) {
-  let foundItem = storeData.bookmarks.find(bookmark => bookmark.id === id);
-  return foundItem;
-}
+const findById = function (id) {
+  return storeItems.bookmarks.find(currentItem => currentItem.id === id);
+};
 
-function createBookmark(formData) {
-  // Takes data in the shape of an object, and creates a new bookmark with that data and then pushes that new item to the store.
-  const newBookmark = {
-    isExpanded: false,
-    inEditMode: false
-  };
-  storeData.bookmarks.push(Object.assign(formData, newBookmark));
-}
+const expandThis = function (id) {
+  let selectedItem = findById(id);
+  selectedItem.expanded = !selectedItem.expanded;
+};
 
-function findAndUpdateBookmark(id, updateData) {
-  let parsedData = JSON.parse(updateData);
+const addBookmark = function (item) {
+  this.storeItems.bookmarks.push(item);
+};
 
-  let foundItem = findBookmarkById(id);
-  let index = storeData.bookmarks.findIndex(bookmark => bookmark.id === id);
-  let mergedData = Object.assign(foundItem, parsedData);
-  storeData.bookmarks.splice(index, 1, mergedData);
-} 
+const findAndDelete = function (id) {
+  storeItems.bookmarks = storeItems.bookmarks.filter(currentItem => currentItem.id !== id);
+};
 
-function toggleIsExpanded(id) {
-  let foundItem = findBookmarkById(id);
-  foundItem.isExpanded = !foundItem.isExpanded;
-}
-
-function toggleInEditMode(id) {
-  let foundItem = findBookmarkById(id);
-  foundItem.inEditMode = !foundItem.inEditMode;
-}
-
-function deleteBookmark(id) {
-  // Takes an id, looks through the array of bookmarks and deletes the bookmark with the matching id.
-  let index = storeData.bookmarks.findIndex(bookmark => bookmark.id === id);
-  storeData.bookmarks.splice(index, 1);
-}
-
-function setError(value) {
-  storeData.error = value;
-}
+const setError = function (error) {
+  this.storeItems.error = error;
+};
 
 export default {
-  storeData,
-  setError,
-  createBookmark,
-  deleteBookmark,
-  toggleIsExpanded,
-  toggleInEditMode,
-  findAndUpdateBookmark
+  storeItems,
+  findById,
+  expandThis,
+  addBookmark,
+  findAndDelete,
+  setError
 };

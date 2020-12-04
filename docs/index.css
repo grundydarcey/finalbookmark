@@ -1,165 +1,251 @@
-* {
-  box-sizing: border-box;
-}
 body {
+  background-color: green;
+}
+
+header {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  padding: 20px;
+  font-family: cursive;
+}
+
+footer {
+  text-align: center;
+  color: white;
+  font-family: cursive;
+  padding-top: 40px;
+}
+
+footer p {
+  padding-top: 20px;
+}
+
+.error-area {
+  text-align: center;
+  color: white;
+  padding: 5px;
+  font-family: cursive;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.new-button, .filter {
+  background-color: white;
+  color: black;
+  font-family: cursive;
+  border-radius: 15px;
+  border: none;
+  box-shadow: none;
+  font-size: 18px;
+  margin: 5px;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.new-button :hover {
+  color: white;
   background-color: black;
 }
-header{
-  color: #2894ff;
-}
 
-h1 {
-  text-align: center;
-}
-
-.my-bookmarks{
-  border: #2894ff solid 2px;
-  margin: auto;
-  width: 100%;
-  background-color: #1f242d;
-  color: #2894ff;
-  display: block;
-  padding: 5px;
-  justify-content: space-between;
-}
-
-.bookmark {
-  border: #2894ff solid 2px;
-  border-radius: 5px;
-  margin: auto;
-  width: 100%;
-  background-color: #1f242d;
-  color: #2894ff;
+.main-display {
+  margin: 40px;
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
+  justify-content: center;
 }
-.collapsed {
+
+.collapsible, .list-empty{
+  margin-top: 30px;
+  width: 500px;
+  font-family: cursive;
+  font-size: 20px;
+  background: black;
+  color: #dadfe1;
+  border-radius: 20px;
+  border: none;
+  font-weight: bold;
+  padding: 12px;
+} 
+
+.button-text {
+  flex: 4;
+}
+
+.rate {
+  flex: 1;
+}
+
+.checked {
+  color: orange;
+}
+
+.content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: row;
 }
 
-.expanded {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  padding: 10px 15px 10px 15px;
-}
-.description{
- 
-  justify-content: space-between;
-  padding: 10px 15px 10px 15px;
-}
-.bookmark-title{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.new-bookmark-form {
-  display: inline;
-  justify-content: space-between;
-
-}
-
-.bookmark-controls {
-  display: inline;
-  justify-content: space-between;
-}
-
-.bookmark-list {
-  padding: 0;
-}
-
-.bookmark h3 {
-  margin-left: 20px;
-}
-
-.bookmark p {
-  margin-right: 20px;
-}
-
-input {
-  display: block;
-}
-i {
-  color: #2894ff;
-}
-
-.delete-button {
-  font-size: 20px;
-  font-family: sans serif;
-  background-color: slategray;
-  border-radius: 12px;
-  padding: 3px, 7px, 3px, 5px;
-  margin-bottom: 10px;
-  margin-right: 10px;
-}
-
-.link-button {
-  font-size: 20px;
-  font-family: sans-serif;
-  background-color: slategray;
-  border-radius: 12px;
-  padding: 3px, 7px, 3px, 5px;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  box-shadow: 0 1px 0 1px lightgray;
-}
-
-
-.form {
-  font-size: 20px;
-}
-
-input[type="radio"] {
-  font-size: 5px;
-}
-
-input,
-textarea {
-  font-size: 20px;
-  border: solid 2px darkgray;
-  border-radius: 12px;
-}
-
-#title,
-#url {
-  width: 100%;
-}
-
-textarea {
-  resize: none;
-  width: 100%;
-}
-
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
-  font-family: sans-serif;
-  background-color: white;
-  box-shadow: 0 1px 0 1px lightgray;
-}
-
-.url-warning-container {
-  text-align: center;
-}
-
-.url-warning {
-  margin: 0 auto;
+.panel {
+  background-color: black;
+  border-radius: 20px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.footer-space {
-  height: 25px;
+.drop-down-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.add-bookmark {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 
+.visit-site, .delete-button {
+  background: white;
+  color: black;
+  font-family: cursive;
+  border: none;
+  box-shadow: none;
+  font-size: 18px;
+  padding: 10px;
+  margin: 15px;
+  font-weight: bold;
+  border-radius: 20px;
+}
 
+.cancel-button, .submit-form {
+  margin: 1%;
+  background-color: white;
+  color: black;
+  font-family: cursive;
+  border-radius: 15px;
+  border: none;
+  box-shadow: none;
+  font-size: 18px;
+  margin: 5px;
+  padding: 10px;
+  font-weight: bold;
+}
 
+#drop-down-text {
+  color: white;
+  font-family: cursive;
+  margin-left: 20px;
+  margin-right: 20px;
+}
 
-@media all and (min-width: 800px) {
-  .my-bookmarks {
-    width: 30vw;
+textarea {
+  width: 300px;
+  height: 100%;
+  resize: none;
+  color: black;
+  font-family: cursive;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.add-bookmark label, .form-add p {
+  font-size: 20px;    
+}
+
+p {
+  margin-top: 0;
+}
+
+.form-add {
+  font-family: cursive;
+  color: white;
+  border-style: solid;
+  border-color: black;
+  border-width: 5px;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+input#enter-link, input#enter-title {
+  background: white;
+  font-family: cursive;
+  border: none;
+  border-radius: 15px;
+  padding: 5px;
+  margin: 10px;
+  height: 24px;
+}
+
+.form-buttons {
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+}
+
+#cancel-error {
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+fieldset {
+  border: none;
+}
+
+.name-input, .url-input, .description-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ratings {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.ratings-title {
+  padding-right: 20px;
+  margin: 0;
+}
+
+@media all and (min-width:800px) {
+  main {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+  }
+
+  .add-bookmark {
+      margin-left: 20%;
+      margin-right: 20%;
+  }
+
+  .name-input, .url-input, .description-area {
+      flex-direction: row;
+      justify-content: left;
+  }
+
+  .ratings {
+      justify-content: left;
+  }
+
+  .ratings-title, .description-area p, .url-input label, .name-input label {
+      padding-right: 20px;
+      margin: 0;
+  }
+
+  .form-add {
+      padding: 20px;
   }
 }

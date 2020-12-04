@@ -1,23 +1,17 @@
 import $ from 'jquery';
-
-import 'normalize.css';
-import './styles.css';
-
+import './index.css';
 import bookmarks from './bookmarks';
 import api from './api';
 import store from './store';
 
 
-
-function pageLoad() {
+function main () {
   api.getBookmarks()
-    .then(bookmarksList => {
-      for (let i = 0; i < bookmarksList.length; i++) {
-        store.createBookmark(bookmarksList[i]);
-      }
-      bookmarks.render();
+    .then((storeItems) => {
+      storeItems.forEach((item) => store.addBookmark(item));
+      bookmarks.renderHome();
     });
-  bookmarks.eventHandlers();
+  bookmarks.renderHome();
 }
 
-$(pageLoad);
+$(main);
