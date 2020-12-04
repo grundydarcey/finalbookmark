@@ -1,8 +1,7 @@
 import store1 from './store1.js';
-import {newBookmarkHandler} from './handlers.js';
-import {expandBookmarkHandler} from './handlers.js';
+import store2 from './store2.js';
+import generateErrorPage from './error.js';
 
-  
 function generateStartPage() {
   return `<div id="new-select">
   <div id="new" class="clicknew">
@@ -22,11 +21,12 @@ function generateStartPage() {
 </div>
 <ul class="result" id="resulted">
   <li class="bmarkcontainer1" id="contained1">
-    <button class="bouton" id="btn">Detailed view</button>
+    <input type="button" id="btn" value="Open Detailed View"><br>
     Link Title: <a href=#mainpage>${store1.bookmarks[0].title}</a> <br>
     Star Rating: ${store1.bookmarks[0].rating}<br><br>
   </li>
   <li class="bmarkcontainer2" id="contained2">
+    <input type="button" id="btn2" value="Open Detailed View"><br>
     Link Title: ${store1.bookmarks[1].title}<br>
     Star Rating: ${store1.bookmarks[1].rating}<br><br>
   </li>
@@ -34,11 +34,21 @@ function generateStartPage() {
 `;
 }
 
+function expandedView() {
+  return `<div id="lesgo">
+  <p>lets go</p>
+  </div>`;
+}
+
 
 function render() {
   let html = '';
   if (store1['adding'] === false) {
     html = generateStartPage();
+  } else if (store2.expanded === true) {
+    html = expandedView();
+  } else {
+    html = generateErrorPage();
   }
   $('#mainpage').html(html);
 }
@@ -50,13 +60,14 @@ function main() {
 
 $(main);
 
-function gotItHandled() {
-  $('#btn').on('click', function(event) {
-    event.preventDefault;
-    console.log('getting it handled');
+$(document).ready(function() {
+  $('#btn').on('click', function() {
+    console.log('start clicking');
   });
-}
+});
 
-
-newBookmarkHandler();
-expandBookmarkHandler();
+$(document).ready(function() {
+  $('#btn2').on('click', function() {
+    console.log('stop making sense');
+  });
+});

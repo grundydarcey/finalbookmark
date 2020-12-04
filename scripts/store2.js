@@ -11,7 +11,9 @@ const store2 = {
   ],
   adding: false,
   error: null,
-  filter: 0
+  filter: 0,
+  expanded: true,
 };
 
 export default store2;
+
