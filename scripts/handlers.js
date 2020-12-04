@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+
 
 function newBookmarkHandler() {
   console.log('Start');
